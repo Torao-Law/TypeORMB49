@@ -1,0 +1,19 @@
+products :
+id
+name
+price
+qty
+
+users :
+id
+name
+email
+password
+role
+
+transaction :
+carts
+
+cart :
+products selected
+users buying
