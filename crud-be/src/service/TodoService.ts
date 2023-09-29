@@ -19,9 +19,19 @@ export default new class TodosService {
       })
 
       const todos = this.TodoRepository.save(obj)
-      return res.status(200).json({ data: todos})
+      return res.status(200).json(todos)
     } catch (err) {
       return res.status(500).json({ Error: "errow while inserting data"})
+    }
+  }
+
+  async find(req: Request, res: Response) : Promise<Response> {
+    try {
+      const todos = this.TodoRepository.find()
+      console.log(todos)
+      return res.status(200).json(todos)
+    } catch (error) {
+      return res.status(500).json({ Error: "errow while finding datas"})
     }
   }
 }

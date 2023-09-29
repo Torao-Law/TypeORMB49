@@ -1,6 +1,6 @@
 import * as express from "express"
+import * as cors from "cors"
 import { AppDataSource } from "./data-source"
-import cors from "cors"
 import router from "./route"
 
 AppDataSource.initialize()
@@ -19,7 +19,7 @@ AppDataSource.initialize()
         // exposedHeaders, credentials, maxAge, preflightContinue, optionSuccessStatus
 
 
-        // app.use(cors(corsOptions))
+        // app.use(cors(corsOptions))s
         app.use(cors())
         app.use(express.json())
         app.use("/api/v1", router)

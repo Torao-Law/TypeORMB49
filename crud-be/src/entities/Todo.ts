@@ -5,8 +5,11 @@ export class Todos {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ nullable: true })
+  @Column()
   name: string;
+
+  @Column({ nullable: true })
+  image: string;
 
   @Column({ 
     type: "timestamp", 
