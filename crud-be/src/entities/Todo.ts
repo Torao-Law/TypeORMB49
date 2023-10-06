@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { User } from "./User";
 
 @Entity({ name: "todos" })
 export class Todos {
@@ -8,12 +9,15 @@ export class Todos {
   @Column()
   name: string;
 
-  @Column({ nullable: true })
-  image: string;
-
   @Column({ 
     type: "timestamp", 
     default: () => "CURRENT_TIMESTAMP"
   })
   posted_at: Date
+
+  @ManyToOne(() => User, user => user.todos, {
+    onUpdate: "CASCADE",
+    onDelete: "CASCADE"
+  })
+  user: User
 }
